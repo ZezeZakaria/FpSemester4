@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/home/dashboard"></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>Keranjang</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let c of carts; let i = index">
+      <app-cart-item
+        [cart]="c"
+        [index]="i"
+        [onRemoveItem]="onRemoveItem.bind(this)"
+      ></app-cart-item>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Total Item: {{ carts.length }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCheckout()">Checkout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

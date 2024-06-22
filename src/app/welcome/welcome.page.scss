@@ -1,0 +1,18 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 300px; /* Sesuaikan ukuran gambar dengan kebutuhan */
+    margin-bottom: 2em; /* Sesuaikan margin dengan kebutuhan */
+  }
+
+  ion-button {
+    margin: 0.5em 0;
+  }
+}

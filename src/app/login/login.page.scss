@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ion-item {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  ion-button {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+.signup-redirect {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-redirect p {
+  font-size: 14px;
+}
+
+.signup-redirect a {
+  color: var(--ion-color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+}

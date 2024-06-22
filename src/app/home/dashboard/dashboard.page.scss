@@ -1,0 +1,20 @@
+/* beranda.page.scss */
+
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-card {
+  margin: 8px 0;
+}
+
+ion-searchbar {
+  margin: 16px 0;
+}
+
+.footer-button {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

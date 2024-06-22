@@ -1,0 +1,7 @@
+{
+  "name": "ShopNJoy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

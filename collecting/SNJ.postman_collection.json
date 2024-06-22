@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "06eb6fe7-915c-4ab5-a8ea-183ceb82cf10",
+		"name": "SNJ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10805366"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\",\r\n    \"name\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"url": "{{baseUrl}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"email\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "All Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/product/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get User Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"url": "{{baseUrl}}/user/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Increase Cart Qty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"url": "{{baseUrl}}/user/cart/{productId}/increase"
+					},
+					"response": []
+				},
+				{
+					"name": "Decrease Cart Qty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/user/cart/{productId}/increase"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Cart Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/user/cart/{productId}/remove"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Get All Invoice",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"url": "{{baseUrl}}/invoice"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invoice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"details\": [\r\n        {\r\n            \"product_id\":\"\",\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/invoice"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoice By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"url": "{{baseUrl}}/invoice/{id}payment"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{baseUrl}}/invoice/{id}/payment"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

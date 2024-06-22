@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Profile Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="form">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input formControlName="name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input formControlName="email" name="email"></ion-input>
+        </ion-item>
+        <ion-button expand="full" type="submit" (click)="updateProfile()"
+          >UBAH</ion-button
+        >
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="onLogout()">Logout</ion-button>
+</ion-content>

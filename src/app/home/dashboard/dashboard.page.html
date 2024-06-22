@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>{{ userName }}</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Cari Produk"></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="12"
+        size-md="6"
+        size-lg="4"
+        *ngFor="let product of products"
+      >
+        <ion-card (click)="goToDetail(product)">
+          <img [src]="product.photo" />
+          <ion-card-header>
+            <ion-card-title>{{ product.product_name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ product.description }}</p>
+            <ion-button
+              expand="full"
+              fill="outline"
+              (click)="addToCart(product); $event.stopPropagation();"
+              >Tambah ke Keranjang</ion-button
+            >
+            <ion-button
+              expand="full"
+              fill="outline"
+              color="danger"
+              (click)="addToWishlist(product); $event.stopPropagation();"
+            >
+              <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+            </ion-button>
+            <ion-button
+              expand="full"
+              fill="solid"
+              (click)="goToCheckout(); $event.stopPropagation();"
+              >Checkout</ion-button
+            >
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="footer-button">
+      <ion-button routerLink="/home/dashboard">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary" class="footer-button">
+      <ion-button routerLink="/wishlist">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="footer-button">
+      <ion-button routerLink="/history">
+        <ion-icon name="time-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="footer-button">
+      <ion-button routerLink="/profile">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

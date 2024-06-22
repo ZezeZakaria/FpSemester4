@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let invoice of invoices; let i = index">
+    <ion-card-header>
+      <ion-card-title>
+        {{ invoice.invoice_number }} ({{ invoice.status }})
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let detail of invoice.details">
+          <ion-label>
+            {{ detail.product.product_name }} x{{ detail.quantity }}
+            <ion-text>
+              ({{ currencyFormat(detail.price*detail.quantity) }})
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-text> Total Invoice: {{ currencyFormat(invoice.amount) }} </ion-text>
+      <div *ngIf="invoice.status === 'pending'">
+        <input
+          type="file"
+          (change)="onFileUpload($event, i)"
+          accept="image/*"
+        />
+        <ion-button
+          expand="full"
+          [disabled]="!files[i]"
+          (click)="uploadPayment(i)"
+        >
+          Upload Pembayaran
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

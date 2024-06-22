@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ product?.product_name ?? 'Loading' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="!loading">
+      <img [src]="product.photo" />
+      <ion-card-header>
+        <ion-card-title>{{ product.product_name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ product.description }}</p>
+        <!-- Additional product details can be added here -->
+      </ion-card-content>
+    </div>
+  </ion-card>
+</ion-content>
